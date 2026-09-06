@@ -27,7 +27,7 @@ def fetch_recent_commits():
     response = requests.get(
         f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/commits",
         headers={
-            "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+            "Authorization": f"Bearer {os.environ['GH_PAT']}",
             "Accept": "application/vnd.github+json",
         },
         params={"since": since, "per_page": 100},
@@ -54,7 +54,7 @@ def fetch_recent_pull_requests():
     response = requests.get(
         "https://api.github.com/search/issues",
         headers={
-            "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+            "Authorization": f"Bearer {os.environ['GH_PAT']}",
             "Accept": "application/vnd.github+json",
         },
         params={"q": query, "per_page": 100},
