@@ -83,8 +83,6 @@ def send_telegram_message(text):
         f"https://api.telegram.org/bot{bot_token}/sendMessage",
         json={"chat_id": chat_id, "text": text},
     )
-    print("DEBUG status:", response.status_code)
-    print("DEBUG body:", response.text)
     response.raise_for_status()
 
 def generate_standup_summary(grouped_commits, grouped_prs):
